@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="26px"
+   height="26px"
+   viewBox="0 0 26 26"
+   enable-background="new 0 0 26 26"
+   xml:space="preserve"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="queen.svg"><metadata
+   id="metadata9"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs7" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1317"
+   inkscape:window-height="744"
+   id="namedview5"
+   showgrid="false"
+   inkscape:zoom="9.0769231"
+   inkscape:cx="13"
+   inkscape:cy="13"
+   inkscape:window-x="49"
+   inkscape:window-y="24"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<path
+   d="M5.187,4c0-1.001,0.812-1.813,1.813-1.813S8.813,2.999,8.813,4c0,0.857-0.597,1.571-1.396,1.76l1.436,1.373l3.555-3.427  C11.699,3.46,11.187,2.793,11.187,2c0-1.001,0.812-1.813,1.813-1.813S14.813,0.999,14.813,2c0,0.791-0.51,1.457-1.217,1.705  l3.556,3.428l1.433-1.372c-0.8-0.188-1.398-0.903-1.398-1.761c0-1.001,0.812-1.813,1.813-1.813S20.813,2.999,20.813,4  c0,0.631-0.324,1.186-0.813,1.511V7l-3,3H9L6,7V5.511C5.511,5.186,5.187,4.631,5.187,4z M20.051,22.274L19.75,22H20  c1.104,0,2-0.672,2-1.5S21.104,19,20,19h-1c0-1.648-2.712-1.27-3.668-5H17c1.104,0,2-0.672,2-1.5S18.104,11,17,11h-2h-4H9  c-1.104,0-2,0.672-2,1.5S7.896,14,9,14h1.668C9.712,17.73,7,17.352,7,19H6c-1.104,0-2,0.672-2,1.5S4.896,22,6,22h0.246l-0.304,0.274  C4.137,23.905,3.249,26,5.014,26h15.974C22.754,26,21.859,23.905,20.051,22.274z"
+   id="path3"
+   style="fill:#ffffff" />
+</svg>
