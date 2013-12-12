@@ -326,17 +326,13 @@ footer .copy {
     padding: 50px 0;
 }
 
-#p-chess {
+#s-chess, #p-chess {
     float: left;
-    padding-right: 30px;
-}
-
-#s-chess {
-    float: right;
+    padding: 30px 15px;
 }
 
 #chess-board {
-    padding: 30px 30px;
+
     background-color: rgba(0, 0, 0, 0.4);
     display: inline-block;
     -webkit-border-radius: 15px;

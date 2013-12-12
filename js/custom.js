@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var positionList = [0, 1, 2, 3, 4, 5, 6, 7];
+    var positionList = [1, 4, 6, 3, 5, 0, 2, 3];
     var divId = "";
     var boardSize = 8;
 
@@ -32,10 +32,12 @@ $(document).ready(function () {
     var evenRow = true;
     for (var i = 0; i < boardSize * boardSize; i++) {
         if (i % boardSize == 0 && i != 0) {
-            if (evenRow) {
-                evenRow = false;
-            } else {
-                evenRow = true;
+            if (boardSize % 2 == 0) {
+                if (evenRow) {
+                    evenRow = false;
+                } else {
+                    evenRow = true;
+                }
             }
         }
         divId = "#p-block" + i;
@@ -58,10 +60,12 @@ $(document).ready(function () {
     var evenRow = true;
     for (var i = 0; i < boardSize * boardSize; i++) {
         if (i % boardSize == 0 && i != 0) {
-            if (evenRow) {
-                evenRow = false;
-            } else {
-                evenRow = true;
+            if (boardSize % 2 == 0) {
+                if (evenRow) {
+                    evenRow = false;
+                } else {
+                    evenRow = true;
+                }
             }
         }
         divId = "#s-block" + i;
@@ -91,10 +95,19 @@ $(document).ready(function () {
                 $(divId).removeClass('white').addClass('black-queen');
             }
         } else {
-            if (absolutePosition % 2 == 0) {
-                $(divId).removeClass('white').addClass('black-queen');
-            } else {
-                $(divId).removeClass('black').addClass('white-queen');
+            if (boardSize % 2 == 0) {
+                if (absolutePosition % 2 == 0) {
+                    $(divId).removeClass('white').addClass('black-queen');
+                } else {
+                    $(divId).removeClass('black').addClass('white-queen');
+                }
+            }
+            else {
+                if (absolutePosition % 2 == 0) {
+                    $(divId).removeClass('black').addClass('white-queen');
+                } else {
+                    $(divId).removeClass('white').addClass('black-queen');
+                }
             }
         }
     }
