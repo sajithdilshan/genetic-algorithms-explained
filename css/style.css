@@ -297,7 +297,11 @@ footer .copy {
 
 
 
-
+#input-form{
+    max-width: 300px;
+    float: right;
+    margin-right: 50px;
+}
 
 #btn-apply{
     margin-top: 25px;

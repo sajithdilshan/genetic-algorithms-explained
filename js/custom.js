@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var positionList = [0, 3, 5, 2, 3, 4, 7, 5];
+    var positionList = [5,2,4,7,0,3,1,6];
     var boardSize = 8;
 
     // draw blank chess board layout

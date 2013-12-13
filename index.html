@@ -84,7 +84,7 @@
                         <div id="s-chess"></div>
                     </div>
                     <div id="input-form">
-                        <form class="form-inline" role="form">
+                        <form class="form" role="form">
                             <div class="form-group">
                                 <label>Number of Queens</label>
                                 <input type="number" min="8" max="20" step="1" class="form-control" id="numOfQueens"
@@ -93,7 +93,22 @@
                             <div class="form-group">
                                 <label>Initial Position</label>
                                 <input type="text" class="form-control" id="initialPosition"
-                                       placeholder="0,3,5,2,3,4,7,5,6" value="0,3,5,2,3,4,7,5">
+                                       placeholder="5,2,4,7,0,3,1,6" value="5,2,4,7,0,3,1,6">
+                            </div>
+                            <div class="form-group">
+                                <label>Mutation Probability</label>
+                                <input type="number" min="0" max="1" step=".001" class="form-control" id="mutationProb"
+                                       placeholder="0.001" value="0.001">
+                            </div>
+                            <div class="form-group">
+                                <label>Max. Iteration</label>
+                                <input type="number"  min="0" class="form-control" id="maxIteration"
+                                       placeholder="1000000" value="1000000">
+                            </div>
+                            <div class="form-group">
+                                <label>Population Size</label>
+                                <input type="number"  min="1" class="form-control" id="popSize"
+                                       placeholder="10" value="10">
                             </div>
                             <div id="btn-apply" class="btn btn-default">Apply</div>
                         </form>
