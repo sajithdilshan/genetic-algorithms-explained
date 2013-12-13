@@ -1,26 +1,47 @@
 $(document).ready(function () {
 
-    var positionList = [1, 4, 6, 3, 5, 0, 2, 3,9,10,8];
-    var boardSize = 11;
+    var positionList = [0, 3, 5, 2, 3, 4, 7, 5];
+    var boardSize = 8;
 
     // draw blank chess board layout
     var p_html = drawBlankBoard(boardSize, "p")
     $("#p-chess").append(p_html);
-
-    var s_html = drawBlankBoard(boardSize, "s")
-
-    $("#s-chess").append(s_html);
-//    $("#s-chess").html("");
-//    $("#s-chess").append(str);
-
     drawColorBlocks(boardSize, "p");
-    drawColorBlocks(boardSize, "s");
-
-
-    // draws the queens on chess board
     drawQueens(boardSize, positionList, "p");
-    drawQueens(boardSize, positionList, "s");
 
+
+//    var s_html = drawBlankBoard(boardSize, "s")
+//    $("#s-chess").append(s_html);
+//    drawColorBlocks(boardSize, "s");
+//    drawQueens(boardSize, positionList, "s");
+
+    $("#btn-apply").on('click', function (e) {
+        var numOfQueens = parseInt($("#numOfQueens").val(), 10);
+        var initialPosition = $("#initialPosition").val().trim();
+
+        initialPosition = initialPosition.split(",");
+
+        if (numOfQueens == initialPosition.length) {
+            for (var i = 0; i < initialPosition.length; i++) {
+                initialPosition[i] = parseInt(initialPosition[i], 10);
+                if (initialPosition[i] >= numOfQueens) {
+                    $('#errorModal').modal("show");
+                    return;
+                }
+            }
+
+            $("#p-chess").html("");
+            var p_html = drawBlankBoard(numOfQueens, "p")
+            $("#p-chess").append(p_html);
+            drawColorBlocks(numOfQueens, "p");
+            drawQueens(numOfQueens, initialPosition, "p");
+        }
+        else {
+            $('#errorModal').modal("show");
+            return;
+        }
+
+    });
 
 });
 

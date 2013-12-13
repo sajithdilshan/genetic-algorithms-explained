@@ -294,6 +294,15 @@ footer .copy {
     font-size: 13px;
 }
 
+
+
+
+
+
+#btn-apply{
+    margin-top: 25px;
+}
+
 /* chess board */
 .black, .white, .black-queen, .white-queen {
     width: 50px;
@@ -328,7 +337,11 @@ footer .copy {
 
 #s-chess, #p-chess {
     float: left;
-    padding: 30px 15px;
+    padding: 30px 30px;
+}
+
+#s-chess{
+    display: none;
 }
 
 #chess-board {
