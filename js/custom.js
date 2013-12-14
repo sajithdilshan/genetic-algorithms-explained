@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var positionList = [5,2,4,7,0,3,1,6];
+    var positionList = [5, 2, 4, 7, 0, 3, 1, 6];
     var boardSize = 8;
 
     // draw blank chess board layout
@@ -10,40 +10,51 @@ $(document).ready(function () {
     drawQueens(boardSize, positionList, "p");
 
 
-//    var s_html = drawBlankBoard(boardSize, "s")
-//    $("#s-chess").append(s_html);
-//    drawColorBlocks(boardSize, "s");
-//    drawQueens(boardSize, positionList, "s");
-
     $("#btn-apply").on('click', function (e) {
-        var numOfQueens = parseInt($("#numOfQueens").val(), 10);
-        var initialPosition = $("#initialPosition").val().trim();
+        var data = {'mutation_prob': $("#mutationProb").val(),
+            'max_iterations': $("#maxIteration").val(),
+            'nqueens': $("#numOfQueens").val(),
+            'population_size': $("#popSize").val()}
 
-        initialPosition = initialPosition.split(",");
+        var numOfQueens = data.nqueens;
 
-        if (numOfQueens == initialPosition.length) {
-            for (var i = 0; i < initialPosition.length; i++) {
-                initialPosition[i] = parseInt(initialPosition[i], 10);
-                if (initialPosition[i] >= numOfQueens) {
-                    $('#errorModal').modal("show");
-                    return;
+        $.ajax({
+            url: '/',
+            type: 'POST',
+            data: data,
+            dataType: 'json',
+            success: function (data, status) {
+
+                if (data.found == "true") {
+                    var initialPosition = data.solution_list;
+//                    alert(data.num_of_iterations);
+//                    alert(data.initial_pos_list);
+                    initialPosition = initialPosition.split(",");
+
+                    for (var i = 0; i < initialPosition.length; i++) {
+                        initialPosition[i] = parseInt(initialPosition[i], 10);
+
+                    }
+
+                    $("#p-chess").html("");
+                    var p_html = drawBlankBoard(numOfQueens, "p")
+                    $("#p-chess").append(p_html);
+                    drawColorBlocks(numOfQueens, "p");
+                    drawQueens(numOfQueens, initialPosition, "p");
+
+//                    $("#stats").html("");
+//                    $("#stats").append(data.initial_pos_list);
+
                 }
-            }
 
-            $("#p-chess").html("");
-            var p_html = drawBlankBoard(numOfQueens, "p")
-            $("#p-chess").append(p_html);
-            drawColorBlocks(numOfQueens, "p");
-            drawQueens(numOfQueens, initialPosition, "p");
-        }
-        else {
-            $('#errorModal').modal("show");
-            return;
-        }
+            }
+        });
+        return false;
 
     });
 
-});
+})
+;
 
 function drawBlankBoard(boardSize, pORs) {
     var str = "<div class='row-block'>";

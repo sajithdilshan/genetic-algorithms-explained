@@ -302,7 +302,10 @@ footer .copy {
     float: right;
     margin-right: 50px;
 }
-
+#stats{
+    max-width: 300px;
+    float: right;
+}
 #btn-apply{
     margin-top: 25px;
 }
