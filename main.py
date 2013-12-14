@@ -65,7 +65,7 @@ class DownloadHandler(webapp2.RequestHandler):
         string = """
 All previous solutions are shown below.\n
 The format of a line is as follows\n
-<number_of_queens>:<mutation_probability>:<number_of_iteration>:<initial_population_size>:<solution>\n
+<number_of_queens>:<mutation_probability>:<number_of_iterations_used_to_solve_the_problem>:<initial_population_size>:<solution>\n
 Solution is shown as comma seperated values of queen positions.\n
 """
         q = Solutiondb.all()

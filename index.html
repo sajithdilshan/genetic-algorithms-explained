@@ -54,7 +54,6 @@
 <!-- Top Starts -->
 <div class="top">
 
-
     <!-- Header Starts -->
     <header>
         <div class="container">
@@ -75,7 +74,7 @@
     </header>
     <!-- Header Ends -->
 
-    <!-- Hero starts -->
+    <!-- Chess Board starts -->
     <div class="hero">
         <div class="container">
             <div class="row">
@@ -97,16 +96,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Max. Iteration</label>
-                                <input type="number"  min="0" class="form-control" id="maxIteration"
+                                <input type="number" min="0" class="form-control" id="maxIteration"
                                        placeholder="1000000" value="1000000">
                             </div>
                             <div class="form-group">
-                                <label>Population Size</label>
-                                <input type="number"  min="1" class="form-control" id="popSize"
+                                <label>Initial Population Size</label>
+                                <input type="number" min="1" class="form-control" id="popSize"
                                        placeholder="10" value="10">
                             </div>
                             <div id="btn-apply" class="btn btn-default">Solve</div>
-                            <a class="btn btn-default" href="/download">Download</a>
+                            <a class="btn btn-default" href="/download" target="_blank">Download</a>
                         </form>
                     </div>
                     <div id="stats"></div>
@@ -114,34 +113,71 @@
             </div>
         </div>
     </div>
-    <!-- Hero ends -->
+    <!-- Chess Board  ends -->
 </div>
 <!-- Top Ends -->
 
-<!-- Feature Starts -->
+<!-- Introduction Starts -->
 <div id="introduction" class="features">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="feature-title text-center">
-                    <h3>What are Genetic Algorithms?</h3>
+            <div class="feature-title">
+                <h3>What are Genetic Algorithms?</h3>
 
-                    <p>Nullam sed sagittis ligula, sit amet luctus nisl. Pellentesque ultricies, nulla et congue
-                        ullamcorper, sem lorem luctus elit, ac faucibus erat libero nec justo.</p>
-                </div>
+                <p>Genetic Algorithms (GAs) are adaptive methods which may be used to solve search and optimization
+                    problems.They are based on the genetic processes of biological organisms. Over many generations,
+                    natural populations evolve according to the principles of natural selection and "survival of the
+                    fittest", first clearly stated by Charles Darwin in The Origin of Species . By mimicking this
+                    process, genetic algorithms are able to "evolve" solutions to real world problems, if they have
+                    been suitably encoded. For example, GAs can be used to design bridge structures, for maximum
+                    strength/weight ratio, or to determine the least wasteful layout for cutting shapes from cloth.
+                    They can also be used for on-line process control, such as in a chemical plant, or load
+                    balancing on a multi-processor computer system.</p>
+
+                <p>The basic principles of GAs were first laid down rigorously by Adaptation in Natural and
+                    Artificial Systems, and are well described in many texts (e.g. Genetic Algorithms and Simulated
+                    Annealing, Handbook of Genetic Algorithms, Genetic algorithms and their applications, etc.) GAs
+                    simulate those processes in natural populations which are essential to evolution. Exactly which
+                    biological processes are essential for evolution, and which processes have little or no role to
+                    play is still a matter for research; but the foundations are clear. In nature, individuals in a
+                    population compete with each other for resources such as food, water and shelter. Also, members
+                    of the same species often compete to attract a mate. Those individuals which are most successful
+                    in surviving and attracting mates will have relatively larger numbers of offspring. Poorly
+                    performing individuals will produce few of even no offspring at all. This means that the genes
+                    from the highly adapted, or "fit" individuals will spread to an increasing number of individuals
+                    in each successive generation. The combination of good characteristics from different ancestors
+                    can sometimes produce "super fit" offspring, whose fitness is greater than that of either
+                    parent. In this way, species evolve to become more and more well suited to their
+                    environment.</p>
+
+                <p>solution to a given problem. Each individual is assigned a "fitness score" according to how good
+                    a solution to the problem it is. For example, the fitness score might be the strength/weight
+                    ratio for a given bridge design. (In nature this is equivalent to assessing how effective an
+                    organism is at competing for resources.) The highly fit individuals are given opportunities to
+                    "reproduce", by "cross breeding" with other individuals in the population. This produces new
+                    individuals as "off spring", which share some features taken from each "parent". The least fit
+                    members of the population are less likely to get selected for reproduction, and so "die
+                    out".</p>
+
+                <p>A whole new population of possible solutions is thus produced by selecting the best individuals
+                    from the current "generation", and mating them to produce a new set of individuals. This new
+                    generation contains a higher proportion of the characteristics possessed by the good members of
+                    the previous generation. In this way, over many generations, good characteristics are spread
+                    throughout the population, being mixed and exchanged with other good characteristics as they go.
+                    By favoring the mating of the more fit individuals, the most promising areas of the search space
+                    are explored. If the GA has been designed well, the population will converge to an optimal
+                    solution to the problem.</p>
             </div>
         </div>
-        <hr>
     </div>
 </div>
-
-<!-- Feature Ends -->
+<!-- Introduction Ends -->
 
 <!-- Shots starts -->
 <div class="shots">
     <div class="container">
 
-        <!-- shot1-->
+        <!-- problem-->
         <div id="problem" class="row">
             <div class="shotcontent">
                 <h3>The infamous<span class="text-muted"> Eight Queens</span> problem</h3>
@@ -151,41 +187,41 @@
             </div>
         </div>
         <hr>
-        <!-- shot1 ends -->
+        <!-- problem ends -->
 
-        <!-- shot2 -->
+        <!-- solution -->
         <div id="solution" class="row">
             <div class="shotcontent">
-                <h3>How we solved<span class="text-muted"> The Eight Queens</span> problem</h3>
+                <h3>How we solved<span class="text-muted"> The Eight Queens</span> problem using<span class="text-muted"> Genetic Algorithms</span></h3>
 
                 <p class="shot-para">Dapibus vitae velit. Pellentesque vel venenatis leo, vel egestas velit.In
                     ullamcorper dolor ut odio facilisis tempus. Duis id erat erat. </p>
             </div>
         </div>
         <hr>
-        <!-- shot2 ends -->
+        <!-- solution ends -->
     </div>
 
 </div>
 
 <!-- Shots Ends -->
 
-<!-- Footer starts -->
+<!-- aboutus starts -->
 <footer>
     <div id="aboutus" class="container">
 
-        <div class="row">
-            <div class="footer-link">
-                <h5>About Us</h5>
+        <h3>About Us</h3>
 
-                <p class="shot-para">Dapibus vitae velit. Pellentesque vel venenatis leo, vel egestas velit.In
-                    ullamcorper dolor ut odio facilisis tempus. Duis id erat erat. </p>
-                <hr>
-            </div>
-        </div>
+        <p>We are four undergraduates at the Department of Computer Science and Engineering, University of Moratuwa,
+            Sri Lanka. We designed this as a project for our semester 5 module Intelligent Systems.</p>
+
+        <div id="sajith"></div>
+        <div id="vimuth"></div>
+        <div id="tharindu"></div>
+        <div id="mihil"></div>
     </div>
 </footer>
-<!-- Footer Ends -->
+<!-- aboutus Ends -->
 
 <!-- Javascript files -->
 <!-- jQuery -->
