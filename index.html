@@ -129,21 +129,25 @@
                     They can also be used for on-line process control, such as in a chemical plant, or load
                     balancing on a multi-processor computer system.</p>
 
-                <p>The basic principles of GAs were first laid down rigorously by Adaptation in Natural and
-                    Artificial Systems, and are well described in many texts (e.g. Genetic Algorithms and Simulated
-                    Annealing, Handbook of Genetic Algorithms, Genetic algorithms and their applications, etc.) GAs
-                    simulate those processes in natural populations which are essential to evolution. Exactly which
-                    biological processes are essential for evolution, and which processes have little or no role to
-                    play is still a matter for research; but the foundations are clear. In nature, individuals in a
-                    population compete with each other for resources such as food, water and shelter. Also, members
-                    of the same species often compete to attract a mate. Those individuals which are most successful
-                    in surviving and attracting mates will have relatively larger numbers of offspring. Poorly
-                    performing individuals will produce few of even no offspring at all. This means that the genes
-                    from the highly adapted, or "fit" individuals will spread to an increasing number of individuals
-                    in each successive generation. The combination of good characteristics from different ancestors
-                    can sometimes produce "super fit" offspring, whose fitness is greater than that of either
-                    parent. In this way, species evolve to become more and more well suited to their
-                    environment.</p>
+                <p>The basic principles of GAs were first laid down rigorously by <a
+                        href="https://mitpress.mit.edu/books/adaptation-natural-and-artificial-systems" target="_blank">Adaptation
+                    in Natural and Artificial Systems</a>, and are well described in many texts (e.g. <a
+                        href="http://www.amazon.com/Genetic-Algorithms-Simulated-Annealing-Lawrence/dp/0273087711/"
+                        target="_blank">Genetic Algorithms and Simulated Annealing, </a><a
+                        href="http://www.amazon.com/Handbook-Genetic-Algorithms-Lawrence-David/dp/0442001738/"
+                        target="_blank">Handbook of Genetic Algorithms, </a><a
+                        href="http://dx.doi.org/10.1109/79.543973" target="_blank">Genetic algorithms and their
+                    applications, </a>etc.) GAs simulate those processes in natural populations which are essential to
+                    evolution. Exactly which biological processes are essential for evolution, and which processes have
+                    little or no role to play is still a matter for research; but the foundations are clear. In nature,
+                    individuals in a population compete with each other for resources such as food, water and shelter.
+                    Also, members of the same species often compete to attract a mate. Those individuals which are most
+                    successful in surviving and attracting mates will have relatively larger numbers of offspring.
+                    Poorly performing individuals will produce few of even no offspring at all. This means that the
+                    genes from the highly adapted, or "fit" individuals will spread to an increasing number of
+                    individuals in each successive generation. The combination of good characteristics from different
+                    ancestors can sometimes produce "super fit" offspring, whose fitness is greater than that of either
+                    parent. In this way, species evolve to become more and more well suited to their environment.</p>
 
                 <p>solution to a given problem. Each individual is assigned a "fitness score" according to how good
                     a solution to the problem it is. For example, the fitness score might be the strength/weight
@@ -177,8 +181,178 @@
             <div class="shotcontent">
                 <h3>The infamous<span class="text-muted"> Eight Queens</span> problem</h3>
 
-                <p class="shot-para">Dapibus vitae velit. Pellentesque vel venenatis leo, vel egestas velit.In
-                    ullamcorper dolor ut odio facilisis tempus. Duis id erat erat. </p>
+                <p class="shot-para">The original eight queens problem consisted of trying to find a way to place eight
+                    queens on a chessboard so that no queen would attack any other queen. An alternate way of expressing
+                    the problem is to place eight “anythings” on an eight by eight grid such that none of them share a
+                    common row, column, or diagonal.</p>
+
+                <p class="shot-para">It has long been known that there are 92 solutions to the problem. Of these 92,
+                    there are 12 distinct patterns. All of the 92 solutions can be transformed into one of these 12
+                    unique patterns using rotations and reflections.</p>
+
+                <p class="shot-para">The 12 basic solutions can be constructed using the following table. For example,
+                    if you are constructing solution number 1, then the Queen for chessboard row 1 should be placed in
+                    column 1, the Queen for row 2 should be placed in column 5, etc. A diagram showing solution number 1
+                    appears below the table.</p>
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">Solution #</th>
+                        <th colspan="8">Elements show which column to use per chessboard row</th>
+                    </tr>
+                    <tr>
+                        <th>Row 0</th>
+                        <th>Row 1</th>
+                        <th>Row 2</th>
+                        <th>Row 3</th>
+                        <th>Row 4</th>
+                        <th>Row 5</th>
+                        <th>Row 6</th>
+                        <th>Row 7</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>4</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>2</td>
+                        <td>6</td>
+                        <td>1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>6</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>7</td>
+                        <td>0</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>7</td>
+                        <td>0</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>7</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>6</td>
+                        <td>1</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>7</td>
+                        <td>0</td>
+                        <td>6</td>
+                        <td>3</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <img src="img/sample.jpg" id="sample-img">
+
+                <p class="shot-para">If we rotate and reflect any solution so that the entry on row 1 is as far left as
+                    possible, then we can group solutions by this leftmost column. The above example is a “Column 1”
+                    solution. Of the 12 basic solutions, two are “Column 1” solutions, seven are “Column 2” solutions,
+                    and three are “Column 3” solutions.</p>
             </div>
         </div>
         <hr>
@@ -187,7 +361,8 @@
         <!-- solution -->
         <div id="solution" class="row">
             <div class="shotcontent">
-                <h3>How we solved<span class="text-muted"> The Eight Queens</span> problem using<span class="text-muted"> Genetic Algorithms</span></h3>
+                <h3>How we solved<span class="text-muted"> The Eight Queens</span> problem using<span
+                        class="text-muted"> Genetic Algorithms</span></h3>
 
                 <p class="shot-para">Dapibus vitae velit. Pellentesque vel venenatis leo, vel egestas velit.In
                     ullamcorper dolor ut odio facilisis tempus. Duis id erat erat. </p>
@@ -204,16 +379,15 @@
 <!-- aboutus starts -->
 <footer>
     <div id="aboutus" class="container">
-
         <h3>About Us</h3>
-
         <p>We are four undergraduates at the Department of Computer Science and Engineering, University of Moratuwa,
-            Sri Lanka. We designed this as a project for our semester 5 module Intelligent Systems.</p>
-
-        <div id="sajith"></div>
-        <div id="vimuth"></div>
-        <div id="tharindu"></div>
-        <div id="mihil"></div>
+            Sri Lanka. We designed this as a project for our semester 5 module Intelligent Systems and the source code
+            is available on <a href="https://github.com/sajithdilshan/genetic-algorithms-explained" target="_blank">Github</a>
+            under <a href="http://www.wtfpl.net/" target="_blank">wtfpl license.</a></p>
+        <div id="sajith" onclick="location.href='#';" ></div>
+        <div id="vimuth" onclick="location.href='#';" ></div>
+        <div id="tharindu" onclick="location.href='#';" ></div>
+        <div id="mihil" onclick="location.href='#';" ></div>
     </div>
 </footer>
 <!-- aboutus Ends -->
