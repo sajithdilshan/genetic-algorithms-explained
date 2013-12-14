@@ -19,6 +19,8 @@ import population
 import webapp2
 import jinja2
 import json
+from google.appengine.ext import db
+
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -45,9 +47,36 @@ class GeneticAlgorithm:
         return False, population[0]
 
 
+class Solutiondb(db.Model):
+    num_of_queens = db.IntegerProperty(required=True)
+    mutation_probability = db.FloatProperty(required=True)
+    num_of_iteration = db.IntegerProperty(required=True)
+    population_size = db.IntegerProperty(required=True)
+    solution = db.StringProperty(required=True)
+
+
 def get_solution(parameters):
     g = GeneticAlgorithm(parameters['mutation_prob'], parameters['max_iterations'])
     return g.find_solution(population.Population(parameters['nqueens'], parameters['population_size']))
+
+
+class DownloadHandler(webapp2.RequestHandler):
+    def get(self):
+        string = """
+All previous solutions are shown below.\n
+The format of a line is as follows\n
+<number_of_queens>:<mutation_probability>:<number_of_iteration>:<initial_population_size>:<solution>\n
+Solution is shown as comma seperated values of queen positions.\n
+"""
+        q = Solutiondb.all()
+        for p in q.run():
+            string += "%s:%s:%s:%s:%s\n" % (p.num_of_queens,
+                                            p.mutation_probability,
+                                            p.num_of_iteration,
+                                            p.population_size,
+                                            p.solution)
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.write(string)
 
 
 class MainHandler(webapp2.RequestHandler):
@@ -72,6 +101,13 @@ class MainHandler(webapp2.RequestHandler):
                       'solution_list': str(solution[1])[1:-9],
                       'num_of_iterations': str(solution[2]),
                       'initial_pos_list': str(solution[3])}
+            e = Solutiondb(mutation_probability=mutation_prob,
+                           num_of_queens=nqueens,
+                           num_of_iteration=int(solution[2]),
+                           population_size=population_size,
+                           solution=str(solution[1])[1:-9].replace(" ", ""))
+            e.put()
+
         else:
             output = {'found': "false"}
 
@@ -80,5 +116,5 @@ class MainHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-                                  ('/', MainHandler)
+                                  ('/', MainHandler), ('/download', DownloadHandler)
                               ], debug=True)

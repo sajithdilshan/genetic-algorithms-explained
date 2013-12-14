@@ -324,9 +324,9 @@ footer .copy {
     float: right;
 }
 
-#btn-apply {
-    margin-top: 25px;
-}
+/*#btn-apply {*/
+    /*margin-top: 25px;*/
+/*}*/
 
 /* chess board */
 .black, .white, .black-queen, .white-queen {
