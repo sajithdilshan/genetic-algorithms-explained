@@ -4,17 +4,17 @@ $(document).ready(function () {
     var boardSize = 8;
 
     // draw blank chess board layout
-    var p_html = drawBlankBoard(boardSize, "p")
+    var p_html = drawBlankBoard(boardSize, "p");
     $("#p-chess").append(p_html);
     drawColorBlocks(boardSize, "p");
     drawQueens(boardSize, positionList, "p");
 
 
-    $("#btn-apply").on('click', function (e) {
+    $("#btn-apply").on('click', function () {
         var data = {'mutation_prob': $("#mutationProb").val(),
             'max_iterations': $("#maxIteration").val(),
             'nqueens': $("#numOfQueens").val(),
-            'population_size': $("#popSize").val()}
+            'population_size': $("#popSize").val()};
 
         var numOfQueens = data.nqueens;
         $('.ajax-loader').css('display', 'block');
@@ -23,9 +23,10 @@ $(document).ready(function () {
             type: 'POST',
             data: data,
             dataType: 'json',
-            success: function (data, status) {
-
+            success: function (data) {
+                /** @namespace data.found */
                 if (data.found == "true") {
+                    /** @namespace data.solution_list */
                     var initialPosition = data.solution_list;
 //                    alert(data.num_of_iterations);
 //                    alert(data.initial_pos_list);
@@ -35,27 +36,19 @@ $(document).ready(function () {
                         initialPosition[i] = parseInt(initialPosition[i], 10);
 
                     }
-                    $('.ajax-loader').css('display', 'none')
+                    $('.ajax-loader').css('display', 'none');
 
                     $("#p-chess").html("");
-                    var p_html = drawBlankBoard(numOfQueens, "p")
+                    var p_html = drawBlankBoard(numOfQueens, "p");
                     $("#p-chess").append(p_html);
                     drawColorBlocks(numOfQueens, "p");
                     drawQueens(numOfQueens, initialPosition, "p");
-
-//                    $("#stats").html("");
-//                    $("#stats").append(data.initial_pos_list);
-
                 }
-
             }
         });
         return false;
-
     });
-
-})
-;
+});
 
 function drawBlankBoard(boardSize, pORs) {
     var str = "<div class='row-block'>";
@@ -69,16 +62,13 @@ function drawBlankBoard(boardSize, pORs) {
 }
 
 function drawColorBlocks(boardSize, pORs) {
+    var evenRow;
     var divId = "";
-    var evenRow = true;
+    evenRow = true;
     for (var i = 0; i < boardSize * boardSize; i++) {
         if (i % boardSize == 0 && i != 0) {
             if (boardSize % 2 == 0) {
-                if (evenRow) {
-                    evenRow = false;
-                } else {
-                    evenRow = true;
-                }
+                evenRow = !evenRow;
             }
         }
         divId = "#" + pORs + "-block" + i;

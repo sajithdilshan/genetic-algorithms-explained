@@ -40,7 +40,7 @@ class GeneticAlgorithm:
 
         for i in range(self.max_iterations):
             population = population.breed(self.mutation_prob)
-            if (population[0].cost == 0):
+            if population[0].cost == 0:
                 print "Found in {} iterations".format(i)
                 return True, (population[0]), format(i), str(initial_pop)
         print "No solution found"
@@ -65,8 +65,8 @@ class DownloadHandler(webapp2.RequestHandler):
         string = """
 All previous solutions are shown below.\n
 The format of a line is as follows\n
-<number_of_queens>:<mutation_probability>:<number_of_iterations_used_to_solve_the_problem>:<initial_population_size>:<solution>\n
-Solution is shown as comma seperated values of queen positions.\n
+<num_of_queens>:<mutation_probability>:<num_of_iterations_used_to_solve_the_problem>:<initial_population_size>:<solution>\n
+Solution is shown as comma separated values of queen positions.\n
 """
         q = Solutiondb.all()
         for p in q.run():
@@ -115,6 +115,4 @@ class MainHandler(webapp2.RequestHandler):
         self.response.out.write(output)
 
 
-app = webapp2.WSGIApplication([
-                                  ('/', MainHandler), ('/download', DownloadHandler)
-                              ], debug=True)
+app = webapp2.WSGIApplication([('/', MainHandler), ('/download', DownloadHandler)], debug=True)

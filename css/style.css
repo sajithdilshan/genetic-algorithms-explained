@@ -1,7 +1,6 @@
 /* Basic CSS starts */
 
 body {
-    font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     min-width: 1024px;
 }
@@ -68,7 +67,6 @@ header {
     margin-bottom: 15px;
     border-bottom: 1px solid #000;
     width: 100%;
-    /*min-width: 940px;*/
     position: fixed;
 }
 
@@ -138,12 +136,10 @@ header .navigation a:hover {
     font-family: 'Droid Serif', serif;
     font-style: italic;
     max-width: 940px;
-    margin: 0px auto 20px;
+    margin: 0 auto 20px;
     text-align: justify;
 
 }
-
-/* Features */
 
 /* Shots */
 
@@ -151,12 +147,12 @@ header .navigation a:hover {
     padding-top: 60px;
     padding-bottom: 60px;
     max-width: 940px;
-    margin: 0px auto 20px;
+    margin: 0 auto 20px;
 }
 
 .shots .screenshot img {
     width: 300px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .shots .shotcontent h3 {
@@ -181,17 +177,6 @@ header .navigation a:hover {
 .shots hr {
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.shots .shotcontent .shot-content-body i {
-    font-size: 20px;
-    line-height: 25px;
-    margin-right: 5px;
-}
-
-.shots .shot-content-body p {
-    font-family: 'Open Sans', sans-serif !important;
-    line-height: 28px !important;
 }
 
 /* Footer */
@@ -229,7 +214,7 @@ footer h3 {
 
 #aboutus {
     max-width: 940px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 #sajith, #vimuth, #tharindu, #mihil {
@@ -260,6 +245,8 @@ footer h3 {
     background: url('../img/mihil.jpg');
 }
 
+/*AJAX loader*/
+
 .ajax-loader {
     background: url('../img/loader.gif') center center no-repeat white;
     -webkit-border-radius: 999px;
@@ -279,6 +266,8 @@ footer h3 {
     overflow: auto;
 }
 
+/*Parameter form*/
+
 #input-form {
     max-width: 300px;
     float: left;
@@ -290,6 +279,7 @@ footer h3 {
 }
 
 /* chess board */
+
 .black, .white, .black-queen, .white-queen {
     width: 50px;
     height: 50px;
@@ -328,7 +318,6 @@ footer h3 {
 }
 
 #chess-board {
-
     background-color: rgba(0, 0, 0, 0.4);
     display: inline-block;
     -webkit-border-radius: 15px;
