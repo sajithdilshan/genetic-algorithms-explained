@@ -315,18 +315,10 @@ footer .copy {
 
 #input-form {
     max-width: 300px;
-    float: right;
-    margin-right: 50px;
+    float: left;
+    margin-left: 30px;
 }
 
-#stats {
-    max-width: 300px;
-    float: right;
-}
-
-/*#btn-apply {*/
-    /*margin-top: 25px;*/
-/*}*/
 
 /* chess board */
 .black, .white, .black-queen, .white-queen {
@@ -360,14 +352,11 @@ footer .copy {
     padding: 50px 0;
 }
 
-#s-chess, #p-chess {
+#p-chess {
     float: left;
     padding: 30px 30px;
 }
 
-#s-chess {
-    display: none;
-}
 
 #chess-board {
 
