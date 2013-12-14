@@ -17,7 +17,7 @@ $(document).ready(function () {
             'population_size': $("#popSize").val()}
 
         var numOfQueens = data.nqueens;
-
+        $('.ajax-loader').css('display', 'block');
         $.ajax({
             url: '/',
             type: 'POST',
@@ -35,6 +35,7 @@ $(document).ready(function () {
                         initialPosition[i] = parseInt(initialPosition[i], 10);
 
                     }
+                    $('.ajax-loader').css('display', 'none')
 
                     $("#p-chess").html("");
                     var p_html = drawBlankBoard(numOfQueens, "p")

@@ -294,19 +294,37 @@ footer .copy {
     font-size: 13px;
 }
 
+.ajax-loader {
+    background: url('../img/loader.gif') center center no-repeat white;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    display: none;
+    width: 62px;
+    height: 62px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    padding: 10px;
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index: 2;
+    overflow: auto;
+}
 
-
-
-#input-form{
+#input-form {
     max-width: 300px;
     float: right;
     margin-right: 50px;
 }
-#stats{
+
+#stats {
     max-width: 300px;
     float: right;
 }
-#btn-apply{
+
+#btn-apply {
     margin-top: 25px;
 }
 
@@ -347,7 +365,7 @@ footer .copy {
     padding: 30px 30px;
 }
 
-#s-chess{
+#s-chess {
     display: none;
 }
 
