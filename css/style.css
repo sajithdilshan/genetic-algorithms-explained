@@ -344,6 +344,7 @@ footer h3 {
 #chess-board-container {
     text-align: center;
     padding: 120px 0 50px;
+    display: none;
 
 }
 
@@ -351,7 +352,22 @@ footer h3 {
     float: left;
     padding: 30px 30px;
 }
-
+#nojs-div{
+    height: 250px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+#nojs-div p{
+    padding-top: 150px;
+    padding-bottom: 50px;
+    font-size: 16px;
+    font-style: italic;
+    font-family: 'Droid Serif', serif;
+    font-weight: normal;
+    line-height: 35px;
+    text-align: center;
+}
 #chess-board {
     background-color: rgba(0, 0, 0, 0.4);
     display: inline-block;

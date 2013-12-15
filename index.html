@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Title here -->
     <title>Genetic Algorithms</title>
-    <!-- Description, Keywords and Author -->
-    <meta name="description" content="Your description">
-    <meta name="keywords" content="Your,Keywords">
+    <meta name="description" content="Genetic Algorithms. Computer programs that evolve in ways that resemble natural selection, can solve complex problems
+                    even their creators do not fully understand.">
+    <meta name="keywords" content="genetic algorithms, eight queen problem, n queen problem">
     <meta name="author" content="Sajith, Vimuth, Tharindu, Mihil">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +19,8 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -31,10 +31,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Oops!! Something is wrong Jimmy</h4>
             </div>
-            <div class="modal-body" id="model-body-content">
-                Initial positions are not in correct format or doesn't match with the number of queens. Please check
-                again.
-            </div>
+            <div class="modal-body" id="model-body-content"></div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -74,6 +71,10 @@
     <div class="hero">
         <div class="container">
             <div class="row">
+                <noscript>
+                    <div id="nojs-div"><p>JavaScript is disabled! You need to enable JavaScript on your browser in-order
+                        to use n-queen problem solver</p></div>
+                </noscript>
                 <div id="chess-board-container">
                     <div id="chess-board">
                         <div id="p-chess"></div>

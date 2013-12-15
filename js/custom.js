@@ -5,6 +5,9 @@
 
 $(document).ready(function () {
 
+    // show chess board only if javascript is enabled
+    $('#chess-board-container').show();
+
     var positionList = [5, 2, 4, 7, 0, 3, 1, 6];
     var boardSize = 8;
 
