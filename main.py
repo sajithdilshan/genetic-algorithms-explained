@@ -10,6 +10,7 @@ import population
 import webapp2
 import jinja2
 import json
+import logging
 from google.appengine.ext import db
 
 
@@ -26,15 +27,15 @@ class GeneticAlgorithm:
 
     def find_solution(self, population):
         initial_pop = population
-        print "Starting Algorithm - Mutation Probability: {} Max Iterations: {}".format(self.mutation_prob,
-                                                                                        self.max_iterations)
+        logging.debug("Starting Algorithm - Mutation Probability: {} Max Iterations: {}".format(self.mutation_prob,
+                                                                                                self.max_iterations))
 
         for i in range(self.max_iterations):
             population = population.breed(self.mutation_prob)
             if population[0].cost == 0:
-                print "Found in {} iterations".format(i)
+                logging.debug("Found in {} iterations".format(i))
                 return True, (population[0]), format(i), str(initial_pop)
-        print "No solution found"
+        logging.debug("No solution found")
         return False, population[0]
 
 

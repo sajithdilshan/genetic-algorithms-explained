@@ -7,6 +7,7 @@
 
 import chromosome
 import random
+import logging
 
 
 class Population:
@@ -14,7 +15,7 @@ class Population:
         self.num_queens = num_queens
         self.population_size = population_size
         self.population = self.generatePopulation()
-        print "Population - Num Queens: {} Population Size: {}".format(self.num_queens, self.population_size)
+        logging.debug("Population - Num Queens: {} Population Size: {}".format(self.num_queens, self.population_size))
 
     def generatePopulation(self):
         population = []
