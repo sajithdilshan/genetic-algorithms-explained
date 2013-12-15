@@ -3,21 +3,53 @@ $(document).ready(function () {
     var positionList = [5, 2, 4, 7, 0, 3, 1, 6];
     var boardSize = 8;
 
-    // draw blank chess board layout
+    // draw initial chess board layout
     var p_html = drawBlankBoard(boardSize, "p");
     $("#p-chess").append(p_html);
     drawColorBlocks(boardSize, "p");
     drawQueens(boardSize, positionList, "p");
 
-
+    // after clicking solve button
     $("#btn-apply").on('click', function () {
-        var data = {'mutation_prob': $("#mutationProb").val(),
-            'max_iterations': $("#maxIteration").val(),
-            'nqueens': $("#numOfQueens").val(),
-            'population_size': $("#popSize").val()};
 
-        var numOfQueens = data.nqueens;
+        var mutation_prob = parseFloat($("#mutationProb").val());
+        var max_iterations = parseInt($("#maxIteration").val());
+        var population_size = parseInt($("#popSize").val());
+        var numOfQueens = parseInt($("#numOfQueens").val());
+
+        // incorrect parameter handling
+        $("#model-body-content").html("");
+
+        if (mutation_prob < 0 || mutation_prob > 1 || isNaN(mutation_prob)) {
+            $("#model-body-content").append("Mutation probability should be a floating number between 0 and 1.");
+            $('#errorModal').modal('show');
+            return false;
+        }
+        if (max_iterations < 0 || isNaN(max_iterations)) {
+            $("#model-body-content").append("Maximum number of iterations should be a positive integer");
+            $('#errorModal').modal('show');
+            return false;
+        }
+        if (numOfQueens < 8 || numOfQueens > 20 || isNaN(numOfQueens)) {
+            $("#model-body-content").append("Number of queens should be a positive integer between 8 and 20 (including).");
+            $('#errorModal').modal('show');
+            return false;
+        }
+        if (population_size < 0 || isNaN(population_size)) {
+            $("#model-body-content").append("Population size should be a positive integer");
+            $('#errorModal').modal('show');
+            return false;
+        }
+
+        // display ajax loader
         $('.ajax-loader').css('display', 'block');
+
+        // sending ajax request
+        var data = {'mutation_prob': mutation_prob,
+            'max_iterations': max_iterations,
+            'nqueens': numOfQueens,
+            'population_size': population_size};
+
         $.ajax({
             url: '/',
             type: 'POST',
@@ -27,22 +59,32 @@ $(document).ready(function () {
                 /** @namespace data.found */
                 if (data.found == "true") {
                     /** @namespace data.solution_list */
-                    var initialPosition = data.solution_list;
-//                    alert(data.num_of_iterations);
-//                    alert(data.initial_pos_list);
-                    initialPosition = initialPosition.split(",");
+                    var solutionPositionList = data.solution_list;
+                    solutionPositionList = solutionPositionList.split(",");
 
-                    for (var i = 0; i < initialPosition.length; i++) {
-                        initialPosition[i] = parseInt(initialPosition[i], 10);
-
+                    for (var i = 0; i < solutionPositionList.length; i++) {
+                        solutionPositionList[i] = parseInt(solutionPositionList[i], 10);
                     }
+                    // hide ajax loader
                     $('.ajax-loader').css('display', 'none');
 
+                    //draw solution
                     $("#p-chess").html("");
                     var p_html = drawBlankBoard(numOfQueens, "p");
                     $("#p-chess").append(p_html);
                     drawColorBlocks(numOfQueens, "p");
-                    drawQueens(numOfQueens, initialPosition, "p");
+                    drawQueens(numOfQueens, solutionPositionList, "p");
+
+                    return true;
+
+                } else {
+                    //hide ajax loader
+                    $('.ajax-loader').css('display', 'none');
+
+                    //show error message
+                    $("#model-body-content").append("Could not find a solution below the number of maximum number of iterations. Try again with a larger maximum number of iteration value.");
+                    $('#errorModal').modal('show');
+                    return false;
                 }
             }
         });
