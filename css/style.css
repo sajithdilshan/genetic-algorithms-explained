@@ -165,7 +165,7 @@ header .navigation a:hover {
     margin: 0 auto 20px;
 }
 
-#sample-img {
+.sample-img {
     /*vertical-align:middle;*/
     /*padding: 0 auto;*/
     display: inline-block;
@@ -187,7 +187,7 @@ header .navigation a:hover {
     margin-bottom: 15px;
 }
 
-.shots .shotcontent p.shot-para {
+.shots .shotcontent p.shot-para, .shots .shotcontent ul, .shots .shotcontent li  {
     font-size: 16px;
     font-style: italic;
     font-family: 'Droid Serif', serif;
