@@ -367,8 +367,85 @@
                 <h3>How we solved<span class="text-muted"> The Eight Queens</span> problem using<span
                         class="text-muted"> Genetic Algorithms</span></h3>
 
-                <p class="shot-para">Dapibus vitae velit. Pellentesque vel venenatis leo, vel egestas velit.In
-                    ullamcorper dolor ut odio facilisis tempus. Duis id erat erat. </p>
+                <p class="shot-para">As described above genetic algorithms work by applying “Natural Selection” to a population so that 
+                only the fittest in the population survive. In our implementation of the genetic algorithm members of the population are 
+                represented by “chromosome”s. Each chromosome is a possible board possession in the n queens game. 
+                </p>
+                <p>
+                    The board position is represented as a tuple of n numbers, where each number represents the position of the queen on 
+                    the nth column. So the following board position is represented as (4,6,1,5,2,0,7,3). This representation ensures that 
+                    in every chromosome there is no possibility for two queens to be on the same column.
+                </p>
+                
+                <!-- Image goes here <img src="img/sample.jpg" id="sample-img"> -->
+                
+                <p>
+                    These chromosomes in the population breed among each other and mutate until only the “fittest”, which in our case is 
+                    the solution with least conflicts among the queens remain.
+                </p>
+                <p>
+                    The program starts by creating a random population of chromosomes for a size specified by us. Each random
+                    chromosome is created so that it has no two queens in the same row to avoid introducing faulty chromosomes 
+                    to the population. This is done using the following function.
+                </p>
+                <p>
+                    As each row number only appears once in the chromosome no two queens are on the same row.
+                </p>
+                <p>
+                    At each iteration, the chromosomes breed among each other. We select two random chromosomes from the
+                    population and combines the two of them by “breeding”. This breeding function act as follows
+                </p>
+                <ul>
+                    <li>If both parents have common “gene”s (board positions) they are also transferred to the child.</li>
+                    <li>For the remaining position random numbers are generated taking care not to have a chromosome 
+                        where there is a conflict of more than one queen in the same row.</li>
+                    <li>For the remaining position random numbers are generated taking care not to have a chromosome 
+                    where there is a conflict of more than one queen in the same row.</li>
+                    <li>Then a third random chromosome is replaced using the newly created child chromosome.</li>
+                </ul>
+                
+                
+                <!-- Code for the functions How do i format this?-->
+                
+                <p> 
+                    def mutate(self, mutation_prob = .001):
+        			if(random.random()<mutation_prob):
+           			indexOne = random.randint(0,len(self)-1)
+            		indexTwo = random.randint(0,len(self)-1)
+            		temp = self.chromosome[indexOne]
+            		self.chromosome[indexOne] = self.chromosome[indexTwo]
+            		self.chromosome[indexTwo] = temp
+                </p>
+                
+                <p>At the end of each iteration the population is sorted according to how “fit” they are. 
+                The fitness of the chromosome is calculated using the number of conflicts in the board. 
+                This is calculated using the cost function. </p>
+                
+                <!-- More Code -->
+                <!--
+                def getCost(self):
+        cost = 0;
+        for i in range(len(self.chromosome)):
+            cost+=self.chromosome.count(self.chromosome[i]) - 1
+            cost+=self.getDiagonalCost(i)
+        return cost
+            
+    def getDiagonalCost(self,index):
+        cost = 0
+        for i in range(len(self.chromosome)):
+            if(i != index):
+                delta_x = abs(index - i)
+                delta_y = abs(self.chromosome[index] - self.chromosome[i])
+                if(delta_x == delta_y):
+                    cost= cost+1
+        return cost
+    
+            -->
+            
+            <p>The chromosome is considered fitted if the number of conflicts is the lowest. If the fittest chromosome 
+            is a solution the algorithm ends. If not the circle of n-queen life continues until a solution is found or 
+            the limit to iterations is reached.</p>
+                
             </div>
         </div>
         <hr>
