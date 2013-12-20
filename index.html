@@ -402,42 +402,42 @@
             <li>Then a third random chromosome is replaced using the newly created child chromosome.</li>
         </ul>
 
-        <pre class="prettyprint">
-            <code class="language-javascript">
-                def mutate(self, mutation_prob = .001):
-                    if (random.random() < mutation_prob ):
-                        indexOne = random.randint(0,len(self)-1)
-                        indexTwo = random.randint(0,len(self)-1)
-                        temp = self.chromosome[indexOne]
-                        self.chromosome[indexOne] = self.chromosome[indexTwo]
-                        self.chromosome[indexTwo] = temp
-            </code>
-        </pre>
+                    <pre class="prettyprint">
+                        <code class="language-python">
+                            def mutate(self, mutation_prob = .001):
+                                if (random.random() < mutation_prob ):
+                                    indexOne = random.randint(0,len(self)-1)
+                                    indexTwo = random.randint(0,len(self)-1)
+                                    temp = self.chromosome[indexOne]
+                                    self.chromosome[indexOne] = self.chromosome[indexTwo]
+                                    self.chromosome[indexTwo] = temp
+                        </code>
+                    </pre>
 
         <p class="shot-para">At the end of each iteration the population is sorted according to how “fit” they are. The
             fitness of the chromosome is calculated using the number of conflicts in the board. This is calculated using
             the cost function. </p>
 
-        <pre class="prettyprint">
-            <code class="language-javascript">
-                def getCost(self):
-                    cost = 0;
-                    for i in range(len(self.chromosome)):
-                        cost+=self.chromosome.count(self.chromosome[i]) - 1
-                        cost+=self.getDiagonalCost(i)
-                    return cost
+                    <pre class="prettyprint">
+                        <code class="language-python">
+                            def getCost(self):
+                                cost = 0;
+                                for i in range(len(self.chromosome)):
+                                    cost+=self.chromosome.count(self.chromosome[i]) - 1
+                                    cost+=self.getDiagonalCost(i)
+                                return cost
 
-                def getDiagonalCost(self,index):
-                    cost = 0
-                    for i in range(len(self.chromosome)):
-                        if(i != index):
-                            delta_x = abs(index - i)
-                            delta_y = abs(self.chromosome[index] - self.chromosome[i])
-                        if(delta_x == delta_y):
-                            cost= cost+1
-                    return cost
-            </code>
-        </pre>
+                            def getDiagonalCost(self,index):
+                                cost = 0
+                                for i in range(len(self.chromosome)):
+                                    if(i != index):
+                                        delta_x = abs(index - i)
+                                        delta_y = abs(self.chromosome[index] - self.chromosome[i])
+                                    if(delta_x == delta_y):
+                                        cost= cost+1
+                                return cost
+                        </code>
+                    </pre>
 
 
         <p class="shot-para">The chromosome is considered fitted if the number of conflicts is the lowest. If the
@@ -463,9 +463,9 @@
             is available on <a href="https://github.com/sajithdilshan/genetic-algorithms-explained" target="_blank">Github</a>
             under <a href="http://www.wtfpl.net/" target="_blank">wtfpl license.</a></p>
 
-        <div id="sajith" onclick="location.href='#';"></div>
+        <div id="sajith" onclick="location.href='http://sajithdilshan.github.io/';"></div>
         <div id="vimuth" onclick="location.href='#';"></div>
-        <div id="tharindu" onclick="location.href='#';"></div>
+        <div id="tharindu" onclick="location.href='http://lk.linkedin.com/in/tharinduranasinghe';"></div>
         <div id="mihil" onclick="location.href='#';"></div>
     </div>
 </footer>
