@@ -385,6 +385,16 @@
         <p class="shot-para">The program starts by creating a random population of chromosomes for a size specified by
             us. Each random chromosome is created so that it has no two queens in the same row to avoid introducing
             faulty chromosomes to the population. This is done using the following function.</p>
+            
+            <pre class="prettyprint">
+                        <code class="language-python">
+                            def random(cls, num_queens=8):
+                                chromosome = [i for i in range(num_queens)]
+                                random.shuffle(chromosome)
+                                return cls(chromosome)
+                        </code>
+            </pre>
+        
 
         <p class="shot-para">As each row number only appears once in the chromosome no two queens are on the same
             row.</p>
@@ -396,10 +406,42 @@
             <li>For the remaining position random numbers are generated taking care not to have a chromosome where there
                 is a conflict of more than one queen in the same row.
             </li>
-            <li>For the remaining position random numbers are generated taking care not to have a chromosome where there
-                is a conflict of more than one queen in the same row.
+        </ul>
+        
+                    <pre class="prettyprint">
+                        <code class="language-python">
+                            def fromParents(cls, parent_one, parent_two):
+                                if (len(parent_one) != len(parent_two)):
+                                    return "Error"
+        
+                                if (parent_one == parent_two):
+                                    parent_two = Chromosome.random(len(parent_two))
+        
+                                possible = [i for i in range(len(parent_one))]
+                                current = [-1 for i in range(len(parent_one))]
+        
+                                for i in range(len(parent_one)):
+                                    if(parent_one[i] == parent_two[i]):
+                                        current[i] = parent_one[i]
+                                        possible.remove(current[i])
+                                
+                                for i in range(len(parent_one)):
+                                    if(current[i] == -1):
+                                        current[i] = random.choice(possible)
+                                        possible.remove(current[i])
+                
+                                return cls(current)
+                        </code>
+                    </pre>
+        
+        <ul>
+            <li>
+                Then genetic mutation is introduced to the chromosome according to the predefined 	mutation probability. 
+                This condition is enforced by checking the mutation probability against a random number. 
+                If the random number falls below the probability number the gene is mutated by switching two random 
+                positions in the chromosome.
             </li>
-            <li>Then a third random chromosome is replaced using the newly created child chromosome.</li>
+            <li>Then a third random chromosome is selected and replaced using the newly created child chromosome.</li>
         </ul>
 
                     <pre class="prettyprint">
@@ -442,7 +484,7 @@
 
         <p class="shot-para">The chromosome is considered fitted if the number of conflicts is the lowest. If the
             fittest chromosome is a solution the algorithm ends. If not the circle of n-queen life continues until a
-            solution is found orthe limit to iterations is reached.</p>
+            solution is found or the limit to iterations is reached.</p>
 
     </div>
 </div>
